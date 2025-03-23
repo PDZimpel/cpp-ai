@@ -80,10 +80,10 @@ int main(int argc, char ** argv)
   using namespace std;
 
   Matrix m = Matrix(3,3);
-  int counter = 0;
+  int counter = 8;
   for(int i = 0; i < 3; i++)
-    for(int j = 0; j < 3; j++, counter++)
-      m.data[i][j] = (counter);
+    for(int j = 0; j < 3; j++, counter--)
+      m.data[i][j] = counter;
 
   cout << "the first node is: " << m.stringfy() << endl;
 
@@ -107,6 +107,7 @@ int main(int argc, char ** argv)
     }
 
     string curr_str = current.m.stringfy();
+    cout << "Current Matrix: "<< current.m.stringfy() << " of height "<< current.h << endl;
     if(node_map.find(curr_str) == node_map.end()){
       node_map[curr_str] = true;
       auto new_nodes = generate_nodes(current);
